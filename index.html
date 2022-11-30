@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Media Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      
+    <main>
+      <header>
+        <nav>
+            <div class="nav-link1">
+            <h2>Hannah's Media Library</h2>
+              <a href="#" class="active">Nav 1</a>
+              <a href="#">Nav 2</a>
+              <a href="#">Nav 3</a>
+            </div>
+          </nav>
+         <br></br>
+      </header>
+
+      
+      <!--Slideshow-->
+      <section class="slideshow">
+        <div class="slideshow-wrapper">
+          <div class="slide fade">
+            <div class="numberof">1 of 4</div>
+            <img src="img/IMG_5232.jpg">
+            <div class="captiontext">lights</div>
+          </div><!-- end .slide.fade -->
+          <div class="slide fade">
+            <div class="numberof">2 of 4</div>
+            <img src="img/IMG_5234.jpg"/>
+            <div class="captiontext">drive</div>
+          </div><!-- end .slide.fade -->
+          <div class="slide fade">
+            <div class="numberof">3 of 4</div>
+            <img src="img/IMG_5235.jpg"/>
+            <div class="captiontext">driving</div>
+          </div><!-- end .slide.fade -->
+          <div class="slide fade">
+            <div class="numberof">4 of 4</div>
+            <img src="img/IMG_5236.jpg"/>
+            <div class="captiontext">no filter</div>
+          </div><!-- end .slide.fade -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;<!--unicode for less-than-sign--></a>
+          <a class="next" onclick="plusSlides(1)">&#10095;<!--unicode for greater-than-sign--></a>
+        </div><!--end slideshow-wrapper-->
+        <br />
+
+        <!-- Grid -->
+        <main class="main-grid">
+            <div class="main-grid-item one">
+              <div class="thumb"></div><hr />
+              <div class="card-content">
+                <h4 class="card-title">blurr</h4>
+                <p class="card-text">not the best photo ive taken...</p>
+                <button data-modal="#09" class="card-more button">View</button>
+              </div>
+            </div><!--end .main-grid-item -->
+            <div id="09" class="modal">
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                        <div class="modal-body">
+                  <img src="img/IMG_2337" alt="example" />
+                            <div class="eg-text">
+                                <h3>blurry</h3>
+                                <p>not the best photos ive taken...</p>
+                            </div>
+                        </div><!--end .modal-body-->
+                  </div><!--end .modal-content-->
+                </div><!--end .modal-->
+
+  </main>
+  <footer>
+    <p>&copy; 2022 Hannah Schweitzer</p>
+  </footer>
+  </body>
+</html>
