@@ -1,0 +1,285 @@
+:root {/*-- Sets color variables --*/
+    --prime: rgb(12, 12, 12);
+    --text: rgb(255, 255, 255);
+    --rev-text: #EEE;
+    --accent: #ca2ea0;
+    --bg: rgba(255, 255, 255, 0.11);
+  }
+  body { /*-- Sets body defaults --*/
+    padding: .25rem;
+    font-size: 18px;
+    color: var(--text);
+    background-color: var(--prime);
+    width: 98%;
+    margin: 0 auto;
+  }
+  .nav, h1, h2, h3, h4, h5, h6, .btn {
+    font-family: 'Nerko One';
+    font-size: 45px;
+    letter-spacing: 1px;
+  }
+  i.fas { /*-- adds a little padding left and right on fontawesome icons --*/
+    padding: 0 .33em;
+  }
+  /*------------------
+  --  Nav Styles  --
+  ------------------*/
+  .nav-nav-link { /*-- main navigation element --*/
+    margin-top: -.25rem; /*-- uses negative margin to pull menu to top --*/
+    padding-bottom: .5rem; /*-- creates a little space below nav --*/
+    background-color: var(--prime);
+    display: flex; /*-- creates a flex container --*/
+    flex-direction: row;
+    justify-content: right; /*-- lays out menu items--*/
+    align-content: right; /*-- vertically aligns menu items to center --*/
+    z-index: 1000; /*-- makes navbar always sit in the front, on the z-axis--*/
+    width: 100%; /*-- makes navbar occupy full width of the body --*/
+  }
+ 
+  /*-- Styles for slideshow --*/
+  .slideshow {
+    background-color: var(--bg);
+    padding: 1em;
+  }
+  .slideshow-wrapper {
+    position: relative; /*-- this allows children to be position absolutely --*/
+    margin: auto; /*-- simple centering method--*/  max-width: 100%; /*-- contrains slideshow on largest screens --*/
+  }
+  .slideshow-wrapper img {
+    width: 100%; /*-- makes slideshow responsive in size --*/
+  }
+  .prev, .next {
+    cursor: pointer; /*-- changes hover cursor to the hand --*/
+    position: absolute; /*-- positions arrows absolutely--*/
+    top: 50%; /*-- positions arrows half the height of parent from top --*/
+    width: auto; /*-- matches width of parent --*/
+    padding: 16px; /*-- adds a little bit of space--*/
+    margin-top: -22px; /*-- adjusts position by height of arrows --*/
+    color: white; /*-- sets color for contrast --*/
+    font-weight: bold; /*-- selects heavier font --*/
+    font-size: 18px; /*-- sets arrow font size --*/
+    transition: 1.2s ease; /*-- sets transition speed for arrow hover--*/
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; /*-- prevents users from selecting buttons --*/
+  }
+  .next {
+    right: 0; /*-- positions next arrow hard right --*/
+    border-radius: 3px 0 0 3px; /*-- rounds the outside borders --*/
+  }
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8); /*-- gives a background for contrast on hover --*/
+  }
+  .captiontext {
+    background: rgba(0,0,0,0.4); /*-- transparent black background --*/
+    color: #f2f2f2; /*-- sets color to almost white --*/
+    font-size: 22px; /*-- sets font size --*/
+    padding: 8px 12px; /*-- sets caption padding --*/
+    position: absolute; /*-- positions caption text absolutely--*/
+    bottom: 8px; /*-- sets position 8px from bottom --*/
+    width: 100%; /*-- sets width equal to container width --*/
+    text-align: center; /*-- aligns text center --*/
+  }
+  .numberof {
+    color: #f2f2f2; /*-- sets color to almost white --*/
+    font-size: 12px; /*-- sets font size --*/
+    padding: 8px 12px; /*-- sets numberof padding --*/
+    position: absolute; /*-- positions numberof text absolutely--*/
+    top: 0; /*-- sets position hard to the top--*/
+  }
+  .text-center {
+    display: flex;
+  }
+  .indicator {
+    cursor:pointer; /*-- changes hover cursor to the hand --*/
+    height: auto; /*-- sets height of pics --*/
+    width: 25%; /*-- sets width of pics --*/
+    margin: 0 2px; /*-- adds margin between pics --*/
+    background-color: #bbb; /*-- sets background color to light gray --*/
+    display: inline-block; /*-- displays in a horizontal line --*/
+    transition: all 250ms ease-in-out; /*-- allows opacity change to take time --*/
+    opacity: .5;
+  }
+  .indicator img {
+    width: 100% !important; /*-- small images fill available space --*/
+  }
+  .active, .indicator:hover {
+    opacity: 1; /*-- makes fully visible when hovered  --*/
+  }
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade; /*-- webkit prefix  --*/
+    -webkit-animation-duration: 1.5s; /*-- webkit prefix --*/
+    animation-name: fade; /*-- defines which animation to use --*/
+    animation-duration: 3s; /*-- sets the duration --*/
+  }
+  @-webkit-keyframes fade { /*-- webkit prefix --*/
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  @keyframes fade { /*-- sets "fade" animation properties --*/
+    from {opacity: .4} /*-- sets start of animation --*/
+    to {opacity: 1} /*-- sets end of animation --*/
+  }
+  /* On smaller screens, hides slideshow */
+  @media only screen and (max-width: 767px) {
+    .slideshow {display: none;}
+  }
+  /*-- ----------
+  - GRID STYLES -
+  ---------------*/
+  .main-grid {
+    margin-top: 3.5rem; /*-- adds space above grid wrap --*/
+    display: grid; /*-- sets display mode --*/
+    grid-gap: 1.5rem; /*-- creates gutters --*/
+    grid-template-columns: 1fr; /*-- default mobile layout is 1-column--*/
+  }
+  /*-- grid media queries--*/
+  @media screen and (min-width: 550px) { /*-- at screens between 550 and 767 --*/
+    body {width: 96%;}
+    .main-grid {grid-template-columns: repeat(2, 1fr);}  /*-- 2 columnns --*/
+  }
+  @media screen and (min-width: 768px) {/*-- at screens between 768 and 989 --*/
+    body {width: 94%;}
+    .main-grid {grid-template-columns: repeat(3, 1fr);} /*-- 3 columnns --*/
+  }
+  @media screen and (min-width: 990px) {/*-- at screens between 990 and 1271 --*/
+    body {width: 92%;}
+    .main-grid {grid-template-columns: repeat(4, 1fr);} /*-- 4 columnns --*/
+  }
+  @media screen and (min-width: 1280px) {/*-- at screens 1280 and above --*/
+    body {width: 90%;}
+    .main-grid {grid-template-columns: repeat(4, 1fr);} /*-- 4 columnns --*/
+  }
+  /*-- media card styles -- */
+  .main-grid-item {
+    border-radius: 4px;  /*-- rounds borders --*/
+    padding: .5em; /*-- adds space inside --*/
+    background-color: var(--bg);
+  }
+  .thumb {
+    padding-bottom: 56%; /*-- creates ~16:9 ratio--*/
+    background-size: cover; /*--sets image to cover background --*/
+    background-position: center center; /*-- positions image horiz. and vert. center --*/
+    border-radius: 4px 4px 0 0; /*-- rounds top-left and top-right edges --*/
+  }
+  /*-- Card Backgrounds --*/
+  .one .thumb {background-image: url("../img/IMG_5237.jpg");}
+  .two .thumb {background-image: url("../img/IMG_5237.jpg");}
+  .three .thumb {background-image: url("../img/IMG_5237.jpg");}
+  .four .thumb {background-image: url("../img/IMG_5237.jpg");}
+
+  /*----*/
+  .card-content {
+    padding: 0 .5em .7em .5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*-- vertically centers card content --*/
+  }
+  .card-title {
+    margin: 1rem 0 0 0;
+    text-transform: uppercase; /*--all caps text --*/
+    align-self: flex-start; /*-- positions at beginning --*/
+    color: var(--text);
+  }
+  .card-text {
+    font-size: .80em;
+    line-height: 1.2;
+    align-self: flex-start;
+    color: var(--text);
+  }
+  button.card-more {
+    background: transparent;
+    padding: .45em .7em .4em .7em;
+    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  button.card-more, button.card-more:visited {
+    color: var(--text);
+    border: 3px dashed var(--text);
+    transition: all 250ms ease-in-out;
+  }
+  button.card-more:hover, button.card-more:active {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  /*-- Modal Styles --*/
+  /* The Modal (background) */
+  .modal {
+     display: none;/*-- hidden by default --*/
+     position: fixed; /*-- doesn't move on the screen --*/
+     z-index: 1100; /*-- sets higher than anything else so modal is in the very front --*/
+     left: 0; /*-- positions at zero pixels from the left --*/
+     top: 0; /*-- positions at zero pixels from the top --*/
+     width: 100%; /*-- fills the space --*/
+     height: 100%; /*-- fills the space --*/
+     overflow: auto; /*-- handles overflow as normal. --*/
+     background-color: rgba(10, 10, 10, .4); /*--slightly transparent--*/
+  }
+  .modal-content {
+     background-color: var(--bg);
+     color: var(--text);
+     margin: 1rem auto;
+     padding: 1em;
+     width: 92%;
+     border-radius: 4px;
+     animation: fadein .3s ease-in-out; /*-- sets animation properties: name, duration, easing --*/
+  }
+  @keyframes fadein {
+    from{transform:scale(.1);} /*-- modal grows from very small to full size--*/
+  }
+  .close {
+     color: var(--text);
+     font-size: 2.5em;
+     font-weight: bold;
+     position: absolute; /*-- always at the top right of the modal --*/
+     top: 5px;
+     right: 4.25%;
+     transition: all .2s ease-in;
+     text-shadow: 2px 2px 5px #FAFAFA,
+                 -2px -2px 5px #FAFAFA,
+                 2px -2px 5px #FAFAFA,
+                 -2px 2px 5px #FAFAFA;
+  }
+  .close:hover,
+  .close:focus {
+     color: var(--accent);
+     text-decoration: none;
+     cursor: pointer;
+  }
+  .modal-body {
+    display: grid;
+    grid-template-columns: 1fr; /*-- default modal grid (for mobile screens)--*/
+    grid-gap: 2em;
+  }
+  .eg-text {
+    align-self: center;
+  }
+  .eg-text h3 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .modal-body img {
+    margin-bottom: 1.5em;
+    width: 100%;
+    height: auto;
+  }
+  @media screen and (min-width: 1280px) { /*-- better modal display on largest screens --*/
+    .modal-body {grid-template-columns: 7fr 5fr;}
+  
+  }
+  /*-- Footer Styles --*/
+  footer {
+    background-color: var(--prime);
+    padding: .25rem;
+    color: var(--rev-text);
+    text-align: center;
+  }
+  footer a {
+    color: var(--rev-text);
+  }
+  footer a:hover {
+    color: var(--rev-accent);
+  }
